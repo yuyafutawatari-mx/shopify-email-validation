@@ -8,7 +8,7 @@
     },
     "output": {
       "operations": [
-        { "validationAdd": { "errors": [{ "message": "メールアドレスに全角文字や日本語が含まれています。半角文字で入力してください。", "target": "$.cart.buyerIdentity.email" }] } }
+        { "validationAdd": { "errors": [{ "message": "メールアドレスは半角英数字・記号でご入力ください。", "target": "$.cart.buyerIdentity.email" }] } }
       ]
     }
   }

@@ -33,7 +33,7 @@ extensions/email-ascii-validation/
 | `buyerJourney.step === "CHECKOUT_COMPLETION"` かつ `cart.buyerIdentity.email` に `/[^\x00-\x7F]/` が一致 | エラー（注文確定をブロック） |
 | 上記以外（`CART_INTERACTION` / `CHECKOUT_INTERACTION`、email が null・空文字、buyerIdentity なし） | エラーなし |
 
-- エラーメッセージ: `メールアドレスに全角文字や日本語が含まれています。半角文字で入力してください。`
+- エラーメッセージ: `メールアドレスは半角英数字・記号でご入力ください。`
 - 対象フィールド: `$.cart.buyerIdentity.email`
 
 ## セットアップ

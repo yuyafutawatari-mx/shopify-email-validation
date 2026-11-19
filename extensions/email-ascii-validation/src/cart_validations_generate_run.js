@@ -6,7 +6,7 @@
  */
 
 export const ERROR_MESSAGE =
-  "メールアドレスに全角文字や日本語が含まれています。半角文字で入力してください。";
+  "メールアドレスは半角英数字・記号でご入力ください。";
 export const ERROR_TARGET = "$.cart.buyerIdentity.email";
 
 /**
