@@ -10,7 +10,7 @@ Shopify Functions（Cart and Checkout Validation API）で、購入者のメー�
 ## 構成
 
 ```
-shopify.app.toml                      アプリ設定（`shopify app config link` で上書き）
+shopify.app.email-validation.toml     アプリ設定（client_id: email-validation アプリ）
 package.json                          ルート（@shopify/cli, workspaces）
 extensions/email-ascii-validation/
   shopify.extension.toml              api_version = 2026-07 / target = cart.validations.generate.run
@@ -42,7 +42,7 @@ extensions/email-ascii-validation/
 
 ```bash
 npm install
-npx shopify app config link   # 既存アプリに紐付け or 新規作成。client_id が設定されます
+npx shopify app config link   # 別のアプリに紐付ける場合のみ。shopify.app.<名前>.toml が作成されます
 ```
 
 既存の Shopify アプリに組み込む場合は `extensions/email-ascii-validation/` をそのアプリの `extensions/` 配下にコピーするだけで動作します（他のファイルの変更は不要）。
@@ -65,7 +65,7 @@ echo '{"buyerJourney":{"step":"CHECKOUT_COMPLETION"},"cart":{"buyerIdentity":{"e
 
 ## 開発ストアでの動作確認
 
-1. `npm run dev`（ルートで実行）→ 開発ストアを選択。アプリがインストールされ Function が配信されます
+1. ルートで `npx shopify app dev --config email-validation --store <開発ストア>.myshopify.com` を実行。アプリがインストールされ Function が配信されます
 2. 管理画面 **設定 → チェックアウト → チェックアウトルール** で「Email ASCII validation」を追加して有効化
 3. ストアフロントで商品をカートに入れチェックアウトし、以下を確認
    - `test@example.com` 等 → 注文確定できる
@@ -74,12 +74,12 @@ echo '{"buyerJourney":{"step":"CHECKOUT_COMPLETION"},"cart":{"buyerIdentity":{"e
    - 入力途中（`CHECKOUT_INTERACTION`）ではエラーが出ない
    - ログイン購入・ゲスト購入の両方
    - 電話番号のみのチェックアウト（ストア設定で許可している場合）→ 影響なし
-4. 実行ログは Partner Dashboard → アプリ → 拡張機能 → Function の実行ログ、または `shopify app dev` のコンソールで確認（Function 自体はメールアドレスを出力しません）
+4. 実行ログは Partner Dashboard → アプリ → 拡張機能 → Function の実行ログ、または `shopify app dev` のコンソールで確認（Function 自体はメールアドレスを出力しません。ただしローカルの `.shopify/logs/` には入力値としてメールアドレスが記録されます。`.shopify/` は git 管理外です）
 
 ## 本番デプロイ（承認後に実施）
 
 ```bash
-npm run deploy   # = shopify app deploy。新しいアプリバージョンを作成・リリース
+npx shopify app deploy --config email-validation   # 新しいアプリバージョンを作成・リリース
 ```
 
 その後、本番ストアにアプリをインストールし、**設定 → チェックアウト → チェックアウトルール** で有効化します。

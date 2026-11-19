@@ -3,6 +3,7 @@ api_version = "2026-07"
 [[extensions]]
 name = "t:name"
 handle = "email-ascii-validation"
+uid = "2b9e012c-c7cb-4dfe-e841-a26489e7813eec3dffe2"
 type = "function"
 description = "t:description"
 
