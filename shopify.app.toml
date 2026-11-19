@@ -1,0 +1,15 @@
+# `shopify app config link` で既存/新規アプリに紐付けると client_id 等が上書きされます。
+client_id = ""
+name = "email-ascii-validation"
+application_url = "https://shopify.dev/apps/default-app-home"
+embedded = true
+
+[access_scopes]
+# Function の実行・チェックアウトルールでの有効化に追加スコープは不要
+scopes = ""
+
+[auth]
+redirect_urls = ["https://shopify.dev/apps/default-app-home/api/auth"]
+
+[webhooks]
+api_version = "2026-07"

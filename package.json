@@ -1,0 +1,19 @@
+{
+  "name": "shopify-email-validation",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "shopify": "shopify",
+    "build": "shopify app build",
+    "dev": "shopify app dev",
+    "deploy": "shopify app deploy",
+    "info": "shopify app info",
+    "test": "npm test --workspaces --if-present"
+  },
+  "workspaces": [
+    "extensions/*"
+  ],
+  "devDependencies": {
+    "@shopify/cli": "5.0.2"
+  }
+}

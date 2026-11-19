@@ -1,0 +1,10 @@
+query CartValidationsGenerateRunInput {
+  buyerJourney {
+    step
+  }
+  cart {
+    buyerIdentity {
+      email
+    }
+  }
+}

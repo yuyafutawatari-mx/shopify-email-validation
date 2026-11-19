@@ -1,0 +1,4 @@
+{
+  "name": "Email ASCII validation",
+  "description": "Blocks checkout completion when the buyer email contains non-ASCII (full-width / Japanese) characters."
+}

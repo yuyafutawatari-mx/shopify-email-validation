@@ -1,0 +1,15 @@
+{
+  "payload": {
+    "export": "cart-validations-generate-run",
+    "target": "cart.validations.generate.run",
+    "input": {
+      "buyerJourney": { "step": "CHECKOUT_COMPLETION" },
+      "cart": { "buyerIdentity": { "email": "ｔｅｓｔ@example.com" } }
+    },
+    "output": {
+      "operations": [
+        { "validationAdd": { "errors": [{ "message": "メールアドレスに全角文字や日本語が含まれています。半角文字で入力してください。", "target": "$.cart.buyerIdentity.email" }] } }
+      ]
+    }
+  }
+}
